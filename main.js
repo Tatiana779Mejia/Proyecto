@@ -1,49 +1,38 @@
-const  products = [
-    { nombre: "Audifonos Color Rosa"},
-    { nombre: "Audifonos Color Rosa"},
-    { nombre: "Audifonos Color Negro"},
-    { nombre: "Audifonos Color Negro"},
-    { nombre: "Audifonos Color Negro"},
-    { nombre: "Audifonos Color Verde"},
-    { nombre: "Audifonos Color Rosa"},
-    { nombre: "Audifonos Color Negro"},
-    { nombre: "Audifonos Color Morado"},
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search");
+    const productCards = document.querySelectorAll(".card-product");
 
-    ];
- 
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
 
- 
-function searchProducts(products, searchName) {
-    return products.filter((product) =>
-        product.nombre.toLowerCase().includes(searchName.toLowerCase()));
-}
- 
-function showAllProducts(products) {
-    const divProduct = document.getElementById("productsContainer");
-    divProduct.innerHTML = "";
- 
-    products.forEach(product => {
-        const divP = document.createElement("div");
-        divP.classList.add("product");
-        divP.innerHTML = `<h3>${product.nombre}</h3> <p> ${product.descripcion} </p>`;
-        divProduct.appendChild(divP);
+        productCards.forEach(card => {
+            const productName = card.querySelector("h3").textContent.toLowerCase();
+            // Verifica si el nombre del producto incluye la consulta
+            if (productName.includes(query)) {
+                card.style.display = ""; // Muestra el producto
+            } else {
+                card.style.display = "none"; // Oculta el producto
+            }
+        });
     });
- 
-}
- 
-document.getElementById("search").addEventListener("input",function(){
-    const nameSearched = this.value; //document.getElementById("search").value;
-    const filterProducts = searchProducts(products, nameSearched);
-    showAllProducts(filterProducts);
 });
- 
-function showSortProducts(){
-    const sortProductsList = sortProducts(products);
-    showAllProducts(sortProductsList)
-}
- 
-showAllProducts(products);
-
+    
+    document.getElementById("searchInput").addEventListener("input", function () {
+        const searchTerm = this.value.toLowerCase();
+        const filteredProducts = searchProducts(products, searchTerm);
+        showSuggestions(filteredProducts);
+    });
+    
+    
+    document.getElementById("searchButton").addEventListener("click", function () {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const filteredProducts = searchProducts(products, searchTerm);
+        showAllProducts(filteredProducts);
+        document.getElementById("suggestions").style.display = "none"; 
+    });
+    
+    
+    document.addEventListener("DOMContentLoaded", () => showAllProducts(products));
 
 // Obtener los enlaces del menú desplegable
 const instagramLink = document.getElementById("instagramLink");
@@ -61,4 +50,4 @@ facebookLink.addEventListener("click", () => {
 
 twitterLink.addEventListener("click", () => {
     window.location.href = "https://twitter.com/login";
-    });
+});
