@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps a Pantalla Completa</title>
+    <style>
+        /* Estilos para que el mapa ocupe toda la pantalla */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+            // Configura la ubicación y el mapa
+            const location = { lat: -34.397, lng: 150.644 }; // Cambia estas coordenadas según sea necesario
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: location,
+            });
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7747.497247315587!2d-89.4587087636999!3d13.854122112957405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62deed12711631%3A0xd35cdfff6b220937!2sCd%20Arce!5e0!3m2!1ses!2ssv!4v1728700382562!5m2!1ses!2ssv" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

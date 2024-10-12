@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.section {
+    width: 48%;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cards img {
+    width: 50px;
+}
+
+button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #574bff;
+}
+
+.payment p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .section {
+        width: 100%;
+    }
+}
