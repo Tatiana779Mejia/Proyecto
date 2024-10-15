@@ -24,34 +24,21 @@
     list-style: none;
     padding: 0;
 }
-
 .menu li {
     display: inline;
     margin-right: 10px;
 }
-
-
-    .menu{display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        
+    .menu{  
         padding-left: 0%;
         padding-right: 0%;
-        
         background-color: #c7a17a;
-       
         }
     
     .menu{text-decoration: none;
         font-size: 1.3rem;
         color: #151515;
         font-weight: 600;
-        
-        position: relative;
     }
-    
-        
-    
     .menu a::after{
         content: '';
         width: 1.5rem;
